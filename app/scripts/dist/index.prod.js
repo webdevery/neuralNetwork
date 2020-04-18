@@ -1,0 +1,1 @@
+"use strict";var _jquery=_interopRequireDefault(require("jquery")),_controller=_interopRequireDefault(require("./components/controller.js"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}(0,_jquery.default)(document).ready(function(){new _controller.default});
