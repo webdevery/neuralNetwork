@@ -78,7 +78,12 @@ function () {
     value: function updateScreen(data) {
       this.iteration++;
       if (data.res) this.texts["awaitResult"].update(data.res);
-      if (data.progress) this.texts["progress"].update(data.progress);
+
+      if (data.progress) {
+        var progress = data.progress;
+        if (progress > 100) progress = 100;
+        this.texts["progress"].update(progress);
+      }
 
       if (data.error) {
         this.texts["error"].update(data.error);

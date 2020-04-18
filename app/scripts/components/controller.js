@@ -64,7 +64,11 @@ class MainController {
   updateScreen(data) {
     this.iteration++;
     if (data.res) this.texts["awaitResult"].update(data.res);
-    if (data.progress) this.texts["progress"].update(data.progress);
+    if (data.progress) {
+      let progress = data.progress;
+      if (progress > 100) progress = 100;
+      this.texts["progress"].update(progress);
+    }
     if (data.error) {
       this.texts["error"].update(data.error);
       this.errorsEra += data.error;
@@ -243,11 +247,11 @@ class MainController {
 
     $("[data-read] img").click((e) => {
       let item = e.target;
-      $("#read").find("[name=url]").val(item.src)
+      $("#read").find("[name=url]").val(item.src);
     });
     $("[data-learn] img").click((e) => {
       let item = e.target;
-      $("#learn").find("[name=url_data]").val(item.src)
+      $("#learn").find("[name=url_data]").val(item.src);
     });
   }
 }
